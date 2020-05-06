@@ -8,45 +8,35 @@
 
     <Button
         android:id="@+id/bt_get_class"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        style="@style/tv_style"
         android:text="get class"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_show_msg" />
     <Button
         android:id="@+id/bt_get_constructor"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        style="@style/tv_style"
         android:text="get constructor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_get_class" />
     <Button
         android:id="@+id/bt_get_instance"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        style="@style/tv_style"
         android:text="get instance"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_get_constructor" />
     <Button
         android:id="@+id/bt_get_method"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        style="@style/tv_style"
         android:text="get method"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_get_instance" />
     <Button
         android:id="@+id/bt_get_field"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        style="@style/tv_style"
         android:text="get field"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

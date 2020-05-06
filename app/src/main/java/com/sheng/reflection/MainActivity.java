@@ -18,18 +18,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.bt_get_class)
-    Button btGetClass;
-    @BindView(R.id.bt_get_constructor)
-    Button btGetConstructor;
-    @BindView(R.id.tv_show_msg)
-    TextView tvShowMsg;
-    @BindView(R.id.bt_get_instance)
-    Button btGetInstance;
-    @BindView(R.id.bt_get_method)
-    Button btGetMethod;
-    @BindView(R.id.bt_get_field)
-    Button btGetField;
 
 
     @Override
@@ -43,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.bt_get_class, R.id.bt_get_constructor, R.id.bt_get_instance
             , R.id.bt_get_method, R.id.bt_get_field})
-    public void onViewClicked(View view) {
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_get_class:
                 showClass();
@@ -99,14 +87,23 @@ public class MainActivity extends AppCompatActivity {
             //根据方法名和参数，返回一个具体的具有public属性的方法
             Method method1 = c1.getMethod("testPublicVoidMethod", null);
             Log.e("sheng", "method1 == " + method1);
+            Method method2=c1.getMethod("testShowLog",String.class);
+            method2.invoke(c1.newInstance(), "test");
+
         } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         }
 
         //返回所有具有public属性的方法数组
-        Method[] methods = c1.getMethods();
-        for (int i = 0; i < methods.length; i++) {
-            Log.e("sheng", "methods == " + "i" + "==" + methods[i]);
+        Method[] methods1 = c1.getMethods();
+        for (int i = 0; i < methods1.length; i++) {
+            Log.e("sheng", "methods == " + i + "==" + methods1[i]);
         }
 
         try {
@@ -118,9 +115,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //返回该类中的所有的方法数组（不分public和非public属性）
-        Method[] methods1 = c1.getDeclaredMethods();
-        for (int i = 0; i < methods.length; i++) {
-            Log.e("sheng", "methods==" + i + "=" + methods1[i]);
+        Method[] methods2 = c1.getDeclaredMethods();
+        for (int i = 0; i < methods2.length; i++) {
+            Log.e("sheng", "methods==" + i + "=" + methods2[i]);
         }
 
     }
@@ -130,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             Class c1 = Class.forName("com.sheng.reflection.ReflectTest");
             //无参构造创建对象
             ReflectTest r1 = (ReflectTest) c1.newInstance();
+            Log.e("sheng",c1.toString());
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -143,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             Class c2 = Class.forName("com.sheng.reflection.ReflectTest");
             Constructor constructor = c2.getConstructor(String.class);
             ReflectTest r2 = (ReflectTest) constructor.newInstance("11");
+            Log.e("sheng",c2.toString());
         } catch (ClassNotFoundException | NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -201,6 +200,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 }
